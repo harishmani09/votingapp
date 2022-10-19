@@ -30,8 +30,14 @@ module.exports = {
                 green: "#1aab8b",
                 purple: "#8b60ed",
             },
+            fontSize: {
+                xxs: "0.625rem",
+            },
         },
     },
 
-    plugins: [require("@tailwindcss/forms")],
+    plugins: [
+        require("@tailwindcss/forms"),
+        require("@tailwindcss/line-clamp"),
+    ],
 };

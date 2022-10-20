@@ -66,16 +66,16 @@
             </div>
         </div>
     </div>
-    <div>
+    <div x-data="{ commentopen: false }">
         <div class="button-container flex items-center justify-between mt-6 ">
             <div class="flex space-x-6">
 
-                <button
+                <button @click="commentopen = !commentopen"
                     class="py-4 px-6 rounded-lg text-center text-white font-bold uppercase leading-none w-28 text-xs bg-blue">
                     Reply
                 </button>
-                <div class="relative">
-                    <button type="button"
+                <div class="relative" x-data="{ isopen: false }">
+                    <button type="button" @click="isopen=!isopen"
                         class="flex items-center justify-center h-11 text-xs bg-gray-200 w-28 font-semibold rounded-xl border border-gray-200 hover:border-gray-400 transition duration-150 ease-in">
                         <span class="ml-2">Set Status</span>
                         <span><svg class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -85,7 +85,8 @@
 
                         </span>
                     </button>
-                    <div
+                    <div x-show.trasition.origin.top.left="isopen" @keydown.escape.window="isopen=false"
+                        @click.away="isopen=false" x-cloak
                         class="absolute z-10 w-76 text-left font-semibold text-sm bg-white shadow-dialog rounded-xl mt-2">
                         <form action="#" class="space-y-4 px-4 py-6">
                             <div class="space-y-2">
@@ -169,7 +170,8 @@
                 </button>
             </div>
         </div> <!-- end of button container -->
-        <div class="z-10 w-104 text-left font-semibold text-sm bg-white rounded-xl mt-2 shadow-dialog">
+        <div x-show="commentopen" @click.away="commentopen=false" @keydown.escape.window="commentopen=false"
+            class="z-10 w-104 text-left font-semibold text-sm bg-white rounded-xl mt-2 shadow-dialog">
             <form action="#" class="space-y-4 px-4 py-6">
                 <textarea name="post_comment" id="post_comment" cols="30" rows="4"
                     class="w-full text-sm bg-gray-100 rounded-xl placeholder-gray-900 border-none px-4 py-2"

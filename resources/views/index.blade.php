@@ -131,18 +131,19 @@
                             <div>&bull;</div>
                             <div class="font-semibold text-xs"> 3 comments</div>
                         </footer>
-                        <footer class="flex space-x-2">
+                        <footer class="flex space-x-2" x-data="{ open: false }">
                             <button
                                 class="py-3 px-5 rounded-lg text-center font-bold uppercase leading-none w-28 h-7 text-xxs text-white bg-yellow">In
                                 Progress</button>
-                            <button x-data="{ open: false }" class="border rounded-full" class="border rounded-full">
+                            <button @click="open = !open" @keydown.escape.window="open=false"
+                                @click.away="open=false" class="border rounded-full" class="border rounded-full">
 
-                                <svg @click="open = !open" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                                 </svg>
-                                <ul x-show="open"
+                                <ul x-show="open" x-cloak
                                     class="bg-white shadow-lg absolute w-44 font-semibold p-2 rounded-lg text-black text-xs space-y-2 ml-8">
                                     <li><a class="transition hover:bg-gray-100 duration-150 ease-in px-3 py-1"
                                             href="#">

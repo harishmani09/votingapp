@@ -17,9 +17,9 @@
 
 <body class="font-sans text-gray-900 text-sm bg-gray-background">
 
-    <header class="flex items-center justify-between px-8 py-4">
+    <header class="flex flex-col md:flex-row items-center justify-between px-8 py-4">
         <a href="#"><img src="{{ asset('img/logo.svg') }}" alt="logo"></a>
-        <div class="flex items-center">
+        <div class="flex items-center mt-2 md:mt-1">
             @if (Route::has('login'))
                 <div class=" px-6 py-4 ">
                     @auth
@@ -44,14 +44,13 @@
             @endif
 
             <a href="#">
-                <img src="https://i.pravatar.cc/300?email=harish@gmail.com" alt="avatar"
-                    class="w-10 h-10 rounded-full">
+                <img src="https://i.pravatar.cc/300" alt="avatar" class="w-10 h-10 rounded-full">
             </a>
         </div>
     </header>
-    <main class="flex mx-auto container max-w-custom">
-        <div class="flex-1 mr-5 w-70">
-            <div class="border-blue border-2 rounded-xl mt-16 bg-white">
+    <main class="flex flex-col md:flex-row mx-auto container max-w-custom">
+        <div class=" mr-5 w-70 mx-auto md:mx-0 md:mr-5">
+            <div class="border-blue md:sticky md:top-8 border-2 rounded-xl mt-16 bg-white">
                 <div class="text-center bg-white rounded-lg px-6 py-2 pt-6">
                     <h3 class="font-semibold text-base">Add An Idea</h3>
                     <p class="text-xs">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero, est.</p>
@@ -97,8 +96,8 @@
 
             </div>
         </div>
-        <div class=" w-175" style="max-width: 700px">
-            <nav class="flex items-center justify-between text-xs">
+        <div class="w-full md:w-175 px-2 md:px-0">
+            <nav class=" hidden md:flex items-center justify-between text-xs">
                 <ul class="flex uppercase font-semibold space-x-10 border-b-4 pb-3">
                     <li><a href="#" class="border-b-4 border-blue pb-3">All Ideas(87)</a></li>
                     <li><a href="#"

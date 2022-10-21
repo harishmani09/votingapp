@@ -10,7 +10,7 @@
         </a>
     </div>
     <div class="idea-container rounded-xl flex bg-white">
-        <div class="flex space-x-6">
+        <div class="flex flex-col md:flex-row space-x-6">
             <a href=""><img class="w-20 h-20 rounded-xl ml-8 mr-2"
                     src="https://source.unsplash.com/200x200/?face&v=3" alt=""></a>
             <div class="container">
@@ -27,10 +27,10 @@
                     error corporis, neque iusto fugiat sunt incidunt cum accusamus asperiores quam excepturi aliquam
                     necessitatibus reiciendis dicta harum quod! Voluptatum vel, beatae voluptatem necessitatibus
                     aspernatur quis maiores nihil.</p>
-                <footer class="flex justify-between items-center mt-6">
+                <footer class="flex justify-between flex-col md:flex-row space-y-4 md:space-y-0 md:items-center mt-6">
                     <footer class="flex space-x-4">
-                        <div class="text-gray-900 font-bold">John Doe</div>
-                        <div>&bull;</div>
+                        <div class="hidden md:block text-gray-900 font-bold">John Doe</div>
+                        <div class="hidden md:block">&bull;</div>
                         <div class="text-gray-400 text-xs">Category</div>
                         <div>&bull;</div>
                         <div class="font-semibold text-xs"> 3 comments</div>
@@ -201,7 +201,7 @@
         <div
             class="comment-container relative hover:shadow-md transition duration-150 ease-in-out cursor-pointer rounded-xl flex">
             <div class="flex flex-col border-r border-gray-100 px-5 py-8 ">
-                <div class="text-center">
+                <div class="text-center hidden md:block">
                     <div class="font-semibold text-2xl">12</div>
                     <div class="text-gray-500">votes</div>
                 </div>
@@ -210,7 +210,7 @@
                         class="bg-gray-200 py-2 px-4 uppercase rounded-xl text-xxs font-semibold hover:bg-gray-400 transition duration-150 ease-in">vote</button>
                 </div>
             </div>
-            <div class="flex space-x-6">
+            <div class="flex space-x-0 md:space-x-6 flex-col md:flex-row">
                 <a href=""><img class="w-20 h-20 rounded-xl" src="https://i.pravatar.cc/20"
                         alt=""></a>
                 <div class="container">
@@ -263,7 +263,7 @@
         <div
             class="comment-container relative hover:shadow-md transition duration-150 ease-in-out cursor-pointer rounded-xl flex">
             <div class="flex flex-col border-r border-gray-100 px-5 py-8 ">
-                <div class="text-center">
+                <div class="text-center hidden md:block">
                     <div class="font-semibold text-2xl">12</div>
                     <div class="text-gray-500">votes</div>
                 </div>
@@ -272,7 +272,7 @@
                         class="bg-gray-200 py-2 px-4 uppercase rounded-xl text-xxs font-semibold hover:bg-gray-400 transition duration-150 ease-in">vote</button>
                 </div>
             </div>
-            <div class="flex space-x-6">
+            <div class="flex space-x-0 md:space-x-6 flex-col md:flex-row">
                 <a href=""><img class="w-20 h-20 rounded-xl" src="https://i.pravatar.cc/20"
                         alt=""></a>
                 <div class="container">

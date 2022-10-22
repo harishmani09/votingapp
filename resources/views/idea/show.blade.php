@@ -15,21 +15,15 @@
                     src="https://source.unsplash.com/200x200/?face&v=3" alt=""></a>
             <div class="container">
                 <h4 class="text-xl font-semibold">
-                    <a href="#" class="hover:underline">A random title can go here</a>
+                    <a href="#" class="hover:underline">{{ $idea->title }}</a>
                 </h4>
-                <p class="my-6 line-clamp-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum nihil
-                    soluta sint
-                    nulla quam non rem placeat ab, voluptatum harum saepe dolorem voluptas, accusantium quasi
-                    assumenda consequatur aspernatur cupiditate. Hic repudiandae eligendi ratione odit delectus,
-                    iure iusto sunt quod sequi qui est, id voluptates, obcaecati nisi temporibus assumenda veritatis
-                    veniam ullam! Accusamus tempore numquam quod, voluptate cumque officia, voluptas atque placeat
-                    amet animi obcaecati reprehenderit laboriosam. Cum, iste rerum! Repudiandae laborum ex totam
-                    error corporis, neque iusto fugiat sunt incidunt cum accusamus asperiores quam excepturi aliquam
-                    necessitatibus reiciendis dicta harum quod! Voluptatum vel, beatae voluptatem necessitatibus
-                    aspernatur quis maiores nihil.</p>
+                <p class="my-6 line-clamp-3">{{ $idea->description }}</p>
                 <footer class="flex justify-between flex-col md:flex-row space-y-4 md:space-y-0 md:items-center mt-6">
                     <footer class="flex space-x-4">
-                        <div class="hidden md:block text-gray-900 font-bold">John Doe</div>
+                        <div class="hidden md:block text-gray-900 font-bold">{{ $idea->user->name }}</div>
+                        <div class="hidden md:block">&bull;</div>
+                        <div class="hidden md:block text-gray-900 font-bold">Published
+                            {{ $idea->created_at->diffForHumans() }}</div>
                         <div class="hidden md:block">&bull;</div>
                         <div class="text-gray-400 text-xs">Category</div>
                         <div>&bull;</div>

@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="flex flex-col md:flex-row md:space-x-6 ml-8 md:ml-0">
-                    <a href=""><img class="w-20 h-20 rounded-xl" src="https://i.pravatar.cc/20"
+                    <a href=""><img class="w-20 h-20 rounded-xl" src="{{ $idea->user->avatar }}"
                             alt=""></a>
                     <div class="container mt-4 md:mt-0">
                         <h4 class="text-xl font-semibold">

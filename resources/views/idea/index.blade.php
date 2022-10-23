@@ -36,7 +36,13 @@
 
     <div class="ideas-container space-y-6 my-6">
         @foreach ($ideas as $idea)
-            <div
+            <div x-data
+                @click="const target = $event.target.tagName.toLowerCase()
+
+                !['button', 'svg', 'path','a'].includes(target) && $event.target.closest('.idea-container').querySelector('.idea-link').click()
+
+            {{-- $event.target.closest('.idea-container').querySelector('.idea-link').click() --}}
+            "
                 class="idea-container hover:shadow-md transition duration-150 ease-in-out cursor-pointer rounded-xl flex">
                 <div class="hidden md:flex flex-col border-r border-gray-100 px-5 py-8 ">
                     <div class="text-center">
@@ -54,7 +60,7 @@
                     <div class="container mt-4 md:mt-0">
                         <h4 class="text-xl font-semibold">
                             <a href="{{ route('idea.show', $idea->slug) }} "
-                                class="hover:underline">{{ $idea->title }}</a>
+                                class="idea-link hover:underline">{{ $idea->title }}</a>
                         </h4>
 
                         <p class="my-6 line-clamp-3">{{ $idea->description }}</p>
@@ -126,15 +132,23 @@
                     <h4 class="text-xl font-semibold">
                         <a href="#" class="hover:underline">A random title can go here</a>
                     </h4>
-                    <p class="my-6 line-clamp-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum nihil
+                    <p class="my-6 line-clamp-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum
+                        nihil
                         soluta sint
-                        nulla quam non rem placeat ab, voluptatum harum saepe dolorem voluptas, accusantium quasi
-                        assumenda consequatur aspernatur cupiditate. Hic repudiandae eligendi ratione odit delectus,
-                        iure iusto sunt quod sequi qui est, id voluptates, obcaecati nisi temporibus assumenda veritatis
-                        veniam ullam! Accusamus tempore numquam quod, voluptate cumque officia, voluptas atque placeat
-                        amet animi obcaecati reprehenderit laboriosam. Cum, iste rerum! Repudiandae laborum ex totam
-                        error corporis, neque iusto fugiat sunt incidunt cum accusamus asperiores quam excepturi aliquam
-                        necessitatibus reiciendis dicta harum quod! Voluptatum vel, beatae voluptatem necessitatibus
+                        nulla quam non rem placeat ab, voluptatum harum saepe dolorem voluptas, accusantium
+                        quasi
+                        assumenda consequatur aspernatur cupiditate. Hic repudiandae eligendi ratione odit
+                        delectus,
+                        iure iusto sunt quod sequi qui est, id voluptates, obcaecati nisi temporibus assumenda
+                        veritatis
+                        veniam ullam! Accusamus tempore numquam quod, voluptate cumque officia, voluptas atque
+                        placeat
+                        amet animi obcaecati reprehenderit laboriosam. Cum, iste rerum! Repudiandae laborum ex
+                        totam
+                        error corporis, neque iusto fugiat sunt incidunt cum accusamus asperiores quam excepturi
+                        aliquam
+                        necessitatibus reiciendis dicta harum quod! Voluptatum vel, beatae voluptatem
+                        necessitatibus
                         aspernatur quis maiores nihil.</p>
                     <footer class="flex justify-between items-center mt-6">
                         <footer class="flex space-x-4">

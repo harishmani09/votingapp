@@ -68,7 +68,7 @@
                             <footer class="flex space-x-2">
                                 <div class="text-gray-400 text-xs">{{ $idea->created_at->diffForHumans() }}</div>
                                 <div>&bull;</div>
-                                <div class="text-gray-400 text-xs">Category</div>
+                                <div class="text-gray-400 text-xs">{{ $idea->category->name }}</div>
                                 <div>&bull;</div>
                                 <div class="font-semibold text-xs"> 3 comments</div>
                             </footer>

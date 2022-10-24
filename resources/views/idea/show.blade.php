@@ -25,7 +25,7 @@
                         <div class="hidden md:block text-gray-900 font-bold">Published
                             {{ $idea->created_at->diffForHumans() }}</div>
                         <div class="hidden md:block">&bull;</div>
-                        <div class="text-gray-400 text-xs">Category</div>
+                        <div class="text-gray-400 text-xs">{{ $idea->category->name }}</div>
                         <div>&bull;</div>
                         <div class="font-semibold text-xs"> 3 comments</div>
                     </footer>

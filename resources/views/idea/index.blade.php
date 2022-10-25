@@ -86,7 +86,7 @@
                                 </div>
                                 <div>
                                     <button
-                                        class="py-2 px-0 md:px-4 rounded-lg text-center font-bold uppercase leading-none w-28 h-7 text-xs bg-slate-200">open</button>
+                                        class="{{ $idea->status->classes }} py-2 px-0 md:px-4 rounded-lg text-center font-bold uppercase leading-none w-28 h-7 text-xs ">{{ $idea->status->name }}</button>
                                     <button x-data="{ open: false }" class="border rounded-full">
 
                                         <svg @click="open = !open" xmlns="http://www.w3.org/2000/svg" fill="none"

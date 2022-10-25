@@ -31,8 +31,8 @@
                     </footer>
                     <footer class="flex space-x-2">
                         <button
-                            class="py-2 px-4 rounded-lg text-center font-bold uppercase leading-none w-28 h-7 text-xs bg-slate-200">
-                            open
+                            class="{{ $idea->status->classes }} py-2 px-4 rounded-lg text-center font-bold uppercase leading-none w-28 h-7 text-xs ">
+                            {{ $idea->status->name }}
                         </button>
                         <button x-data="{ open: false }" class="border rounded-full">
 

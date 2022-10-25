@@ -31,7 +31,7 @@ module.exports = {
                 yellow: "#ffc73c",
                 red: "#c454ef",
                 green: "#1aab8b",
-                purple: "#8b60ed",
+                violet: "#8b60ed",
             },
             fontSize: {
                 xxs: "0.625rem",

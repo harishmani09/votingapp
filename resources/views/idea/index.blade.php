@@ -59,8 +59,11 @@
                             alt=""></a>
                     <div class="container mt-4 md:mt-0">
                         <h4 class="text-xl font-semibold">
+
                             <a href="{{ route('idea.show', $idea->slug) }} "
-                                class="idea-link hover:underline">{{ $idea->title }}</a>
+                                class="idea-link hover:underline">{{ $idea->title }}
+                            </a>
+
                         </h4>
 
                         <p class="my-6 line-clamp-3">{{ $idea->description }}</p>

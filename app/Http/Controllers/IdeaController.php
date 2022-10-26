@@ -16,7 +16,8 @@ class IdeaController extends Controller
     public function index()
     {
 
-        return view('idea.index',['ideas'=>Idea::with('user','category', 'status')->paginate(Idea::PAGINATION_COUNT)]);
+        return view('idea.index',['ideas'=>Idea::with('user','category', 'status')->latest()
+        ->paginate(Idea::PAGINATION_COUNT)]);
     }
 
     /**

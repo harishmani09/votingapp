@@ -89,9 +89,12 @@ class ShowIdeasTest extends TestCase
     public function idea_pagination_works()
     {
         $categoryOne = Category::factory()->create(['name'=>'Category 1']);
+        $statusOpen = Status::factory()->create(['name'=>'Open', 'classes'=>'bg-gray-200']);
+
         Idea::factory(Idea::PAGINATION_COUNT+1)->create(
             [
-                'category_id' =>$categoryOne->id
+                'category_id' =>$categoryOne->id,
+                'status_id' => $statusOpen->id
             ]
         );
 
@@ -105,13 +108,13 @@ class ShowIdeasTest extends TestCase
 
         $response = $this->get('/');
 
-        $response->assertSee($ideaOne->title);
-        $response->assertDontSee($ideaEleven->title);
+        $response->assertSee($ideaEleven->title);
+        $response->assertDontSee($ideaOne->title);
 
         $response = $this->get('/?page=2');
 
-        $response->assertSee($ideaEleven->title);
-        $response->assertDontSee($ideaOne->title);
+        $response->assertSee($ideaOne->title);
+        $response->assertDontSee($ideaEleven->title);
     }
 
 

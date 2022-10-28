@@ -17,6 +17,7 @@ class ShowIdeasTest extends TestCase
     /** @test */
     function list_of_ideas_shows_on_main_page()
     {
+        $user = User::factory()->create();
 
         $categoryOne = Category::factory()->create(['name'=> 'category 1']);
         $categoryTwo = Category::factory()->create(['name'=> 'category 2']);
@@ -27,13 +28,16 @@ class ShowIdeasTest extends TestCase
 
         //arrage
         $ideaOne = Idea::factory()->create([
+            'user_id' => $user->id,
             'title' => 'My First idea',
             'category_id' => $categoryOne->id,
             'status_id' => $statusOpen->id,
             'description' => 'first idea description'
         ]);
 
+
         $ideaTwo = Idea::factory()->create([
+            'user_id' => $user->id,
             'title' => 'My Second idea',
             'category_id' => $categoryTwo->id,
             'status_id' => $statusConsidering->id,
@@ -48,11 +52,11 @@ class ShowIdeasTest extends TestCase
             $response->assertSee($ideaOne->title);
             $response->assertSee($ideaOne->description);
             $response->assertSee($categoryOne->name);
-            $response->assertSee('<button class="bg-gray-200 py-2 px-0 md:px-4 rounded-lg text-center font-bold uppercase leading-none w-28 h-7 text-xs ">Open</button>',false);
+
             $response->assertSee($categoryTwo->name);
             $response->assertSee($ideaTwo->title);
             $response->assertSee($ideaTwo->description);
-            $response->assertSee('<button class="bg-gray-200 py-2 px-0 md:px-4 rounded-lg text-center font-bold uppercase leading-none w-28 h-7 text-xs ">Open</button>', false);
+
     }
 
 
@@ -88,11 +92,13 @@ class ShowIdeasTest extends TestCase
     /** @test */
     public function idea_pagination_works()
     {
+        $user =User::factory()->create();
         $categoryOne = Category::factory()->create(['name'=>'Category 1']);
         $statusOpen = Status::factory()->create(['name'=>'Open', 'classes'=>'bg-gray-200']);
 
         Idea::factory(Idea::PAGINATION_COUNT+1)->create(
             [
+                'user_id' => $user->id,
                 'category_id' =>$categoryOne->id,
                 'status_id' => $statusOpen->id
             ]

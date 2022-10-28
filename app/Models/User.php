@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Idea;
+use App\Models\Vote;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -49,6 +50,11 @@ class User extends Authenticatable
         return $this->hasMany(Idea::class);
     }
 
+    public function votes()
+    {
+        return $this->belongsToMany(Idea::class, 'votes');
+    }
+
     public function getAvatarAttribute()
     {
 
@@ -91,4 +97,6 @@ class User extends Authenticatable
         ;
 
     }
+
+
 }

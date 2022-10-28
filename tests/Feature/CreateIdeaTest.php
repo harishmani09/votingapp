@@ -46,7 +46,7 @@ class CreateIdeaTest extends TestCase
     public function main_page_contains_idea_create_livewire_component()
     {
         $response = $this->actingAs(User::factory()->create())
-        ->get(route('idea.idex'))
+        ->get(route('idea.index'))
         ->assertSeeLivewire('create-idea');
 
     }

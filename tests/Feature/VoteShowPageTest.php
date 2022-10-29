@@ -88,18 +88,43 @@ use RefreshDatabase;
                 'title' => 'My First Idea',
                 'description' => 'Description for my first idea'
             ]);
-
-
-
-
         Livewire::test(IdeaShow::class, [
             'idea' => $idea,
             'votesCount' => 5
 
         ])->assertSee('votesCount' , 5);
 
+        }
 
 
+        /** @test */
+        public function user_who_is_logged_in_shows_voted_if_idea_is_alread_voted_for()
+        {
+
+            $user = User::factory()->create();
+            // $user2 = User::factory()->create();
+
+            $categoryOne = Category::factory()->create(['name' => 'Category 1']);
+            $statusOpen = Status::factory()->create(['name'=> 'Open', 'classes' =>'bg-gray-200']);
+
+            $idea = Idea::factory()->create([
+                'user_id' => $user->id,
+                'category_id' => $categoryOne->id,
+                'status_id' => $statusOpen->id,
+                'title' => 'My First Idea',
+                'description' => 'Description for my first idea'
+            ]);
+
+            Vote::factory()->create([
+                'idea_id' => $idea->id,
+                'user_id'=>$user->id
+            ]);
+
+        Livewire::actingAs($user)->test(IdeaShow::class, [
+            'idea' => $idea,
+            'votesCount' => 5
+
+        ])->assertSee('Voted');
 
         }
 

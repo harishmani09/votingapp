@@ -14,11 +14,13 @@
         </div>
         <div class="mt-8 w-20">
             @if ($hasVoted)
-                <button
+                <button wire:click.prevent="vote"
                     class=" py-2 px-4 uppercase rounded-xl text-xxs font-semibold hover:bg-gray-400 transition duration-150 ease-in text-white bg-blue">voted</button>
             @else
-                <button
-                    class="bg-gray-200e py-2 px-4 uppercase rounded-xl text-xxs font-semibold hover:bg-gray-400 transition duration-150 ease-in">vote</button>
+                <button wire:click.prevent="vote"
+                    class="bg-gray-200e py-2 px-4 uppercase rounded-xl text-xxs font-semibold hover:bg-gray-400 transition duration-150 ease-in">
+                    vote
+                </button>
             @endif
 
         </div>

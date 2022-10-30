@@ -11,6 +11,7 @@ class IdeaIndex extends Component
     public $idea;
     public $votesCount;
     public $hasVoted;
+    public $vote;
 
     public function mount(Idea $idea, $votesCount)
     {
@@ -23,6 +24,24 @@ class IdeaIndex extends Component
     public function render()
     {
         return view('livewire.idea-index');
+    }
+
+    public function vote()
+    {
+        if(!auth()->check()){
+            return redirect(route('login'));
+        }
+
+        if ($this->hasVoted){
+            $this->idea->removeVote(auth()->user());
+            $this->votesCount--;
+            $this->hasVoted = false;
+        } else {
+            $this->idea->vote(auth()->user());
+            $this->votesCount++;
+            $this->hasVoted = true;
+        }
+
     }
 
 }

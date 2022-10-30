@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Exceptions\VoteNotFoundException;
 use App\Models\User;
 use App\Models\Status;
 use Illuminate\Database\Eloquent\Model;
@@ -78,10 +79,15 @@ class Idea extends Model
 
     public function removeVote(User $user)
     {
-        Vote::where('idea_id', $this->id)
+        $voteToDelete = Vote::where('idea_id', $this->id)
         ->where('user_id', $user->id)
-        ->first()
-        ->delete();
+        ->first();
+        if ($voteToDelete){
+            $voteToDelete->delete();
+        } else {
+            throw new VoteNotFoundException;
+        }
+
     }
 
 }
